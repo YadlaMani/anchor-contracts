@@ -1,7 +1,7 @@
 use anchor_lang::prelude::*;
 use anchor_lang::system_program;
 
-declare_id!("22222222222222222222222222222222222222222222");
+declare_id!("4sK9aYE1HYhCes5BHcx9cYYE1De21x3CiXm347PWYatn");
 
 #[program]
 pub mod vault {
@@ -23,7 +23,7 @@ pub mod vault {
     )?;
     Ok(())
   }
-  pub fn withdraw(ctx:Context<VaultAction>,amount:u64)->Result<()>{
+  pub fn withdraw(ctx:Context<VaultAction>)->Result<()>{
     let bindings=ctx.accounts.signer.key();
     let signer_seeds=&[b"vault",bindings.as_ref(),&[ctx.bumps.vault]];
     system_program::transfer(
